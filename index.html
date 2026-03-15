@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>법무법인 클리어 | 성범죄·마약 전문 로펌</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --off-white: #f7f7f5;
+  --charcoal: #1a1a1a;
+  --charcoal-light: #2c2c2c;
+  --gray-100: #f4f4f4;
+  --gray-200: #e8e8e8;
+  --gray-400: #aaaaaa;
+  --gray-600: #666666;
+  --crimson: #c0392b;
+  --crimson-dark: #a93226;
+  --crimson-light: #e74c3c;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;color:var(--text-primary);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* ===== PAGE TABS ===== */
+.page-content{display:none}
+.page-content.active{display:block}
+
+/* ===== HEADER ===== */
+.site-header{background:var(--white);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--gray-200)}
+.header-inner{max-width:1320px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{text-decoration:none;display:flex;flex-direction:column;gap:1px}
+.logo-name{font-size:20px;font-weight:900;color:var(--charcoal);letter-spacing:-.02em}
+.logo-name span{color:var(--crimson)}
+.logo-sub{font-size:9px;font-weight:500;color:var(--gray-400);letter-spacing:.2em;text-transform:uppercase}
+.main-nav{display:flex;gap:0}
+.nav-item{color:var(--gray-600);text-decoration:none;padding:8px 18px;font-size:13px;font-weight:500;transition:color .2s;letter-spacing:.02em;position:relative}
+.nav-item::after{content:'';position:absolute;bottom:0;left:18px;right:18px;height:1px;background:var(--crimson);transform:scaleX(0);transition:transform .2s}
+.nav-item:hover,.nav-item.active{color:var(--charcoal)}
+.nav-item:hover::after{transform:scaleX(1)}
+.header-cta{display:flex;align-items:center;gap:20px}
+.emergency-tel{color:var(--charcoal);font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;text-decoration:none;letter-spacing:-.01em}
+.emergency-tel i{color:var(--crimson);font-size:14px}
+.btn-header{background:var(--crimson);color:#fff;padding:10px 22px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:background .2s;border:none;cursor:pointer}
+.btn-header:hover{background:var(--crimson-dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:22px;height:1.5px;background:var(--charcoal);display:block}
+
+/* ===== BOTTOM CONSULT BAR ===== */
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;z-index:1500;background:var(--charcoal);display:flex;align-items:stretch;height:58px}
+.bottom-bar-item{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,.75);font-size:12px;font-weight:500;text-decoration:none;border-right:1px solid rgba(255,255,255,.08);transition:all .2s;cursor:pointer;padding:0 12px}
+.bottom-bar-item:last-child{border-right:none}
+.bottom-bar-item i{font-size:16px}
+.bottom-bar-item:hover{color:#fff;background:rgba(255,255,255,.06)}
+.bottom-bar-item.primary{background:var(--crimson);color:#fff;font-weight:700}
+.bottom-bar-item.primary:hover{background:var(--crimson-dark)}
+
+/* ===== SECTIONS SPACING ===== */
+section{padding:100px 0}
+.section-inner{max-width:1320px;margin:0 auto;padding:0 32px}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;background:var(--charcoal);display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg-text{position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:clamp(140px,18vw,260px);font-weight:900;color:rgba(255,255,255,.03);letter-spacing:-.05em;line-height:1;pointer-events:none;user-select:none;white-space:nowrap}
+.hero-inner{max-width:1320px;margin:0 auto;padding:80px 32px;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--crimson);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:32px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--crimson)}
+.hero-title{font-size:clamp(42px,7vw,100px);font-weight:900;color:#fff;line-height:1.0;letter-spacing:-.04em;margin-bottom:40px}
+.hero-title em{color:var(--crimson);font-style:normal}
+.hero-desc{color:rgba(255,255,255,.55);font-size:clamp(14px,1.5vw,18px);font-weight:300;max-width:480px;line-height:1.8;margin-bottom:56px}
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.btn-primary{background:var(--crimson);color:#fff;padding:18px 40px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.06em;display:inline-flex;align-items:center;gap:10px;transition:all .2s;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--crimson-dark);transform:translateX(4px)}
+.btn-primary i{transition:transform .2s}
+.btn-primary:hover i{transform:translateX(4px)}
+.btn-ghost{color:rgba(255,255,255,.6);font-size:13px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s;letter-spacing:.03em}
+.btn-ghost:hover{color:#fff;border-color:#fff}
+.hero-stats{margin-top:80px;display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:48px}
+.hero-stat{flex:1;padding-right:40px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-stat:last-child{border-right:none;padding-left:40px;padding-right:0}
+.hero-stat:not(:first-child):not(:last-child){padding:0 40px}
+.hero-stat-num{font-size:clamp(36px,4vw,56px);font-weight:900;color:#fff;letter-spacing:-.04em;line-height:1}
+.hero-stat-num span{color:var(--crimson)}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.4);margin-top:8px;letter-spacing:.05em}
+
+/* ===== MARQUEE ===== */
+.marquee-section{background:var(--crimson);overflow:hidden;padding:18px 0}
+.marquee-track{display:flex;gap:0;animation:marquee 20s linear infinite;width:max-content}
+.marquee-item{white-space:nowrap;font-size:12px;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.15em;text-transform:uppercase;padding:0 40px}
+.marquee-item::after{content:'·';margin-left:40px;opacity:.5}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== PRACTICE AREAS ===== */
+.practice-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:72px}
+.section-label{font-size:11px;font-weight:700;color:var(--crimson);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-size:clamp(28px,4vw,48px);font-weight:900;color:var(--charcoal);letter-spacing:-.03em;line-height:1.15}
+.practice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--gray-200)}
+.practice-card{background:#fff;padding:56px 48px;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.practice-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--crimson);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+.practice-card:hover::before{transform:scaleY(1)}
+.practice-card:hover{background:var(--off-white)}
+.practice-num{font-size:72px;font-weight:900;color:var(--gray-200);letter-spacing:-.04em;line-height:1;margin-bottom:24px;transition:color .3s}
+.practice-card:hover .practice-num{color:rgba(192,57,43,.12)}
+.practice-name{font-size:22px;font-weight:700;color:var(--charcoal);margin-bottom:16px;letter-spacing:-.02em}
+.practice-desc{font-size:14px;color:var(--gray-600);line-height:1.85;margin-bottom:28px}
+.practice-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.tag{font-size:11px;font-weight:500;padding:5px 12px;border:1px solid var(--gray-200);color:var(--gray-600);letter-spacing:.03em}
+.practice-link{font-size:12px;font-weight:700;color:var(--crimson);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+
+/* ===== LAWYERS ===== */
+.lawyers-section{background:var(--off-white)}
+.lawyers-scroll-wrap{overflow-x:auto;scrollbar-width:none;margin:0 -32px;padding:0 32px}
+.lawyers-scroll-wrap::-webkit-scrollbar{display:none}
+.lawyers-track{display:flex;gap:2px;width:max-content;padding-bottom:8px}
+.lawyer-card{width:300px;background:#fff;flex-shrink:0;padding:40px 32px;transition:all .3s;border-bottom:3px solid transparent;cursor:pointer}
+.lawyer-card:hover{border-bottom-color:var(--crimson);transform:translateY(-4px)}
+.lawyer-avatar{width:72px;height:72px;background:var(--gray-200);margin-bottom:24px;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--gray-400)}
+.lawyer-name{font-size:20px;font-weight:900;color:var(--charcoal);letter-spacing:-.03em;margin-bottom:4px}
+.lawyer-role{font-size:11px;font-weight:700;color:var(--crimson);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.lawyer-career{font-size:13px;color:var(--gray-600);line-height:1.9}
+.lawyer-career li{list-style:none;padding-left:12px;position:relative}
+.lawyer-career li::before{content:'—';position:absolute;left:0;color:var(--gray-400);font-size:10px}
+
+/* ===== RESULTS ===== */
+.results-section{background:var(--charcoal)}
+.results-inner{max-width:1320px;margin:0 auto;padding:100px 32px}
+.results-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:72px}
+.results-top .section-label{color:rgba(255,255,255,.4)}
+.results-top .section-title{color:#fff}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08)}
+.result-card{background:var(--charcoal);padding:40px;transition:background .3s;cursor:pointer}
+.result-card:hover{background:var(--charcoal-light)}
+.result-type{font-size:10px;font-weight:700;color:var(--crimson);letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
+.result-verdict{font-size:26px;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:12px;line-height:1.2}
+.result-summary{font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:20px}
+.result-meta{font-size:11px;color:rgba(255,255,255,.25);display:flex;gap:16px}
+
+/* ===== PROCESS ===== */
+.process-section{background:#fff}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:64px;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:var(--gray-200);z-index:0}
+.process-step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.step-num{width:56px;height:56px;background:#fff;border:1px solid var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:13px;font-weight:700;color:var(--charcoal);transition:all .3s}
+.process-step:hover .step-num{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.step-title{font-size:14px;font-weight:700;color:var(--charcoal);margin-bottom:8px;letter-spacing:-.01em}
+.step-desc{font-size:12px;color:var(--gray-400);line-height:1.7}
+
+/* ===== CONSULT FORM ===== */
+.consult-section{background:var(--off-white)}
+.consult-inner{max-width:1320px;margin:0 auto;padding:100px 32px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.consult-copy .section-title{margin-bottom:24px}
+.consult-copy p{font-size:15px;color:var(--gray-600);line-height:1.85;margin-bottom:32px}
+.consult-guarantees{display:flex;flex-direction:column;gap:16px}
+.guarantee-item{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--text-secondary)}
+.guarantee-item i{width:32px;height:32px;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--crimson);font-size:14px;flex-shrink:0}
+.form-wrap{background:#fff;padding:48px;border-top:3px solid var(--crimson)}
+.form-group{margin-bottom:24px}
+.form-label{display:block;font-size:11px;font-weight:700;color:var(--charcoal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.form-control{width:100%;border:none;border-bottom:1px solid var(--gray-200);padding:12px 0;font-size:14px;font-family:'Noto Sans KR',sans-serif;color:var(--charcoal);background:transparent;outline:none;transition:border-color .2s}
+.form-control:focus{border-color:var(--crimson)}
+.form-control::placeholder{color:var(--gray-400)}
+select.form-control{-webkit-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 4px center}
+textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.btn-submit{width:100%;background:var(--crimson);color:#fff;border:none;padding:18px;font-size:14px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:background .2s;font-family:'Noto Sans KR',sans-serif;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px}
+.btn-submit:hover{background:var(--crimson-dark)}
+.form-notice{font-size:11px;color:var(--gray-400);text-align:center;margin-top:16px;line-height:1.7}
+
+/* ===== FOOTER ===== */
+.site-footer{background:var(--charcoal);padding:64px 0 80px}
+.footer-inner{max-width:1320px;margin:0 auto;padding:0 32px}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:40px;margin-bottom:56px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-logo-name{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:4px}
+.footer-logo-name span{color:var(--crimson)}
+.footer-logo-sub{font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+.footer-addr{font-size:12px;color:rgba(255,255,255,.4);line-height:1.9}
+.footer-col-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-tel{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
+.footer-tel-label{font-size:11px;color:var(--crimson);letter-spacing:.1em;font-weight:700;text-transform:uppercase}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,.2)}
+
+/* =========================================================
+   PAGE 2: PRACTICE DETAIL (성범죄)
+   ========================================================= */
+.detail-hero{background:var(--charcoal);padding:120px 0 80px}
+.detail-hero-inner{max-width:1320px;margin:0 auto;padding:0 32px}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.3);margin-bottom:32px;letter-spacing:.05em}
+.breadcrumb a{color:rgba(255,255,255,.3);text-decoration:none}
+.breadcrumb span{color:rgba(255,255,255,.15)}
+.detail-title{font-size:clamp(40px,6vw,80px);font-weight:900;color:#fff;letter-spacing:-.04em;line-height:1.05;margin-bottom:24px}
+.detail-title em{color:var(--crimson);font-style:normal}
+.detail-lead{font-size:16px;color:rgba(255,255,255,.5);max-width:600px;line-height:1.85;font-weight:300}
+
+.accordion-section{padding:80px 0}
+.accordion-inner{max-width:1320px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start}
+.accordion-nav{position:sticky;top:calc(var(--tab-h) + 70px)}
+.accordion-nav-title{font-size:10px;font-weight:700;color:var(--gray-400);letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
+.accordion-nav-item{display:block;padding:12px 0;font-size:14px;color:var(--gray-400);text-decoration:none;border-bottom:1px solid var(--gray-200);transition:color .2s;cursor:pointer}
+.accordion-nav-item:hover,.accordion-nav-item.active{color:var(--crimson)}
+
+.accordion-list{border-top:2px solid var(--charcoal)}
+.accordion-item{border-bottom:1px solid var(--gray-200)}
+.accordion-header{padding:28px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.accordion-header-left{display:flex;align-items:center;gap:16px}
+.accordion-idx{font-size:11px;font-weight:700;color:var(--crimson);letter-spacing:.1em}
+.accordion-name{font-size:17px;font-weight:700;color:var(--charcoal);letter-spacing:-.02em}
+.accordion-icon{width:32px;height:32px;border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0}
+.accordion-item.open .accordion-icon{background:var(--crimson);border-color:var(--crimson);color:#fff;transform:rotate(45deg)}
+.accordion-body{display:none;padding:0 0 32px}
+.accordion-item.open .accordion-body{display:block}
+.accordion-body p{font-size:14px;color:var(--gray-600);line-height:1.9;margin-bottom:16px}
+.accordion-body ul{padding-left:0;margin-bottom:16px}
+.accordion-body ul li{font-size:14px;color:var(--gray-600);line-height:1.85;padding-left:16px;position:relative;list-style:none}
+.accordion-body ul li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:1px;background:var(--crimson)}
+
+.steps-section{background:var(--off-white);padding:80px 0}
+.steps-inner{max-width:1320px;margin:0 auto;padding:0 32px}
+.steps-horizontal{display:flex;gap:0;margin-top:48px;overflow-x:auto;scrollbar-width:none}
+.steps-horizontal::-webkit-scrollbar{display:none}
+.step-block{flex:1;min-width:180px;padding:32px 28px;background:#fff;border-right:1px solid var(--gray-200);position:relative}
+.step-block:last-child{border-right:none}
+.step-block::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--gray-200);font-size:18px;z-index:1}
+.step-block:last-child::after{display:none}
+.step-block-num{font-size:40px;font-weight:900;color:var(--gray-200);letter-spacing:-.04em;line-height:1;margin-bottom:16px}
+.step-block-title{font-size:14px;font-weight:700;color:var(--charcoal);margin-bottom:8px}
+.step-block-desc{font-size:12px;color:var(--gray-400);line-height:1.75}
+
+/* =========================================================
+   PAGE 3: CASES LIST
+   ========================================================= */
+.cases-header{background:var(--charcoal);padding:80px 0 60px}
+.cases-filter{background:#fff;border-bottom:1px solid var(--gray-200);position:sticky;top:calc(var(--tab-h) + 70px);z-index:900}
+.cases-filter-inner{max-width:1320px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;height:52px}
+.cases-filter-inner::-webkit-scrollbar{display:none}
+.filter-btn{padding:0 20px;font-size:12px;font-weight:500;color:var(--gray-600);border:none;background:none;cursor:pointer;height:100%;border-bottom:2px solid transparent;white-space:nowrap;font-family:'Noto Sans KR',sans-serif;transition:all .2s;letter-spacing:.03em}
+.filter-btn.active,.filter-btn:hover{color:var(--crimson);border-bottom-color:var(--crimson)}
+.filter-search{margin-left:auto;display:flex;align-items:center;gap:0}
+.filter-input{border:none;border-bottom:1px solid var(--gray-200);padding:8px 12px;font-size:13px;font-family:'Noto Sans KR',sans-serif;outline:none;color:var(--charcoal);width:200px}
+.filter-input:focus{border-color:var(--crimson)}
+
+.cases-list-inner{max-width:1320px;margin:0 auto;padding:48px 32px 80px}
+.case-item{display:grid;grid-template-columns:100px 1fr auto;gap:32px;align-items:start;padding:36px 0;border-bottom:1px solid var(--gray-200);transition:background .2s;cursor:pointer}
+.case-item:hover{background:var(--off-white);margin:0 -32px;padding-left:32px;padding-right:32px}
+.case-num{font-size:11px;font-weight:700;color:var(--gray-400);letter-spacing:.1em;padding-top:4px}
+.case-content{}
+.case-type-tag{font-size:10px;font-weight:700;color:var(--crimson);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+.case-title{font-size:18px;font-weight:700;color:var(--charcoal);letter-spacing:-.02em;margin-bottom:10px;line-height:1.4}
+.case-excerpt{font-size:13px;color:var(--gray-600);line-height:1.75;max-width:600px}
+.case-meta{display:flex;gap:16px;margin-top:12px;font-size:11px;color:var(--gray-400)}
+.case-verdict{text-align:right;flex-shrink:0;padding-top:4px}
+.case-verdict-text{font-size:16px;font-weight:900;color:var(--charcoal);letter-spacing:-.02em;white-space:nowrap}
+.case-verdict-label{font-size:10px;color:var(--gray-400);margin-top:4px;letter-spacing:.05em}
+.verdict-success{color:var(--crimson)}
+
+.pagination{display:flex;align-items:center;justify-content:center;gap:4px;padding:40px 0}
+.page-btn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--gray-600);border:1px solid var(--gray-200);background:#fff;cursor:pointer;transition:all .2s}
+.page-btn.active,.page-btn:hover{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.page-btn.nav{background:none;border:none;color:var(--gray-400)}
+
+/* =========================================================
+   PAGE 4: CASE DETAIL
+   ========================================================= */
+.case-detail-hero{background:var(--charcoal);padding:100px 0 64px}
+.case-detail-inner{max-width:1000px;margin:0 auto;padding:0 32px}
+.case-detail-type{font-size:10px;font-weight:700;color:var(--crimson);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+.case-detail-title{font-size:clamp(28px,4vw,52px);font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1.15;margin-bottom:32px}
+.case-detail-meta{display:flex;gap:32px;flex-wrap:wrap}
+.case-meta-item{font-size:12px;color:rgba(255,255,255,.4)}
+.case-meta-item strong{color:rgba(255,255,255,.7);display:block;font-size:14px;margin-top:4px;font-weight:500}
+
+.timeline-section{padding:80px 0}
+.timeline-inner{max-width:1000px;margin:0 auto;padding:0 32px}
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:48px;position:relative}
+.timeline::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:1px;background:var(--gray-200)}
+.timeline-item{display:grid;grid-template-columns:80px 1fr;gap:32px;padding-bottom:48px;position:relative}
+.timeline-dot{width:33px;height:33px;border:1px solid var(--gray-200);background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gray-400);position:relative;z-index:1;flex-shrink:0}
+.timeline-item.highlight .timeline-dot{background:var(--crimson);border-color:var(--crimson);color:#fff}
+.timeline-content{padding-top:6px}
+.timeline-phase{font-size:10px;font-weight:700;color:var(--crimson);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+.timeline-content h3{font-size:18px;font-weight:700;color:var(--charcoal);letter-spacing:-.02em;margin-bottom:12px}
+.timeline-content p{font-size:14px;color:var(--gray-600);line-height:1.85}
+
+.case-result-box{background:var(--charcoal);padding:48px;margin:48px 0;border-left:4px solid var(--crimson)}
+.case-result-box .section-label{color:rgba(255,255,255,.4);margin-bottom:16px}
+.case-result-box h2{font-size:clamp(24px,3vw,40px);font-weight:900;color:#fff;letter-spacing:-.03em;margin-bottom:16px}
+.case-result-box p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.85}
+
+/* =========================================================
+   PAGE 5: CONSULT PAGE
+   ========================================================= */
+.consult-page-hero{background:var(--charcoal);padding:100px 0}
+.consult-page-inner{max-width:1320px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.consult-page-copy{}
+.consult-page-copy .section-title{color:#fff;margin-bottom:24px}
+.consult-page-copy p{color:rgba(255,255,255,.5);font-size:15px;line-height:1.85;margin-bottom:40px;font-weight:300}
+.consult-promises{display:flex;flex-direction:column;gap:0}
+.promise-item{display:flex;align-items:flex-start;gap:20px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.promise-item:last-child{border-bottom:none}
+.promise-icon{width:40px;height:40px;background:rgba(192,57,43,.15);display:flex;align-items:center;justify-content:center;color:var(--crimson);flex-shrink:0;font-size:16px}
+.promise-text h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.01em}
+.promise-text p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7}
+
+.consult-page-form{background:#fff;padding:48px;border-top:3px solid var(--crimson)}
+.consult-form-title{font-size:20px;font-weight:900;color:var(--charcoal);letter-spacing:-.03em;margin-bottom:32px}
+.form-step-indicator{display:flex;gap:0;margin-bottom:36px}
+.fsi-item{flex:1;text-align:center;padding:12px 8px;background:var(--gray-100);font-size:11px;font-weight:700;color:var(--gray-400);letter-spacing:.05em;position:relative}
+.fsi-item.active{background:var(--crimson);color:#fff}
+.time-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.time-slot{padding:10px;border:1px solid var(--gray-200);text-align:center;font-size:12px;font-weight:500;color:var(--gray-600);cursor:pointer;transition:all .2s}
+.time-slot:hover,.time-slot.selected{border-color:var(--crimson);color:var(--crimson)}
+
+/* ===== MOBILE ===== */
+@media(max-width:900px){
+  .header-inner{padding:0 20px;height:60px}
+  .main-nav,.header-cta .btn-header{display:none}
+  .hamburger{display:flex}
+  .hero-inner{padding:60px 20px}
+  .hero-stats{flex-direction:column;gap:24px;border-top:none;padding-top:32px}
+  .hero-stat{border-right:none;padding:0 0 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .hero-stat:last-child{border-bottom:none}
+  .practice-grid{grid-template-columns:1fr}
+  .consult-inner,.consult-page-inner{grid-template-columns:1fr}
+  .accordion-inner{grid-template-columns:1fr}
+  .accordion-nav{display:none}
+  .results-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:24px}
+  .process-steps::before{display:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .section-inner{padding:0 20px}
+  section{padding:64px 0}
+  .case-item{grid-template-columns:1fr;gap:12px}
+  .case-num{display:none}
+  .case-verdict{text-align:left}
+  .timeline-inner,.case-detail-inner,.steps-inner,.cases-list-inner,.accordion-inner,.detail-hero-inner,.cases-header .section-inner,.results-inner,.consult-page-inner{padding:0 20px}
+  .case-item:hover{margin:0;padding-left:0;padding-right:0}
+  .steps-horizontal{gap:8px}
+  .step-block{min-width:160px}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  .bottom-bar-item span:not(.bar-label){display:none}
+}
+@media(max-width:600px){
+  .hero-title{font-size:clamp(36px,10vw,60px)}
+  .form-row{grid-template-columns:1fr}
+  .consult-page-form{padding:28px 20px}
+  .form-wrap{padding:28px 20px}
+  .practice-card{padding:36px 24px}
+  .lawyer-card{width:260px}
+  .time-slots{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- SHARED HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo" onclick="switchPage('main');return false">
+      <div class="logo-name">법무법인 <span>클리어</span></div>
+      <div class="logo-sub">Law Firm Clear · Since 2008</div>
+    </a>
+    <nav class="main-nav">
+      <a href="#" class="nav-item active" onclick="switchPage('main');return false">법무법인 소개</a>
+      <a href="#" class="nav-item" onclick="switchPage('practice');return false">전문분야</a>
+      <a href="#" class="nav-item" onclick="switchPage('cases');return false">성공사례</a>
+      <a href="#" class="nav-item" onclick="switchPage('consult');return false">상담문의</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:02-000-0000" class="emergency-tel">
+        <i class="fa-solid fa-phone"></i>
+        02-000-0000
+      </a>
+      <a href="#" class="btn-header">무료 상담</a>
+    </div>
+    <button class="hamburger" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================
+     PAGE 1: MAIN
+     ============================================================ -->
+<div id="page-main" class="page-content active">
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0">
+    <div class="hero-bg-text">CLEAR</div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">성범죄·마약 전문 로펌</div>
+      <h1 class="hero-title">
+        결과로<br>
+        증명하는<br>
+        <em>변호사</em>
+      </h1>
+      <p class="hero-desc">
+        혐의를 받는 순간, 모든 것이 달라집니다.<br>
+        법무법인 클리어는 사건 초기부터 선제적으로<br>
+        대응하여 의뢰인의 권익을 지킵니다.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">무료 상담 신청 <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="btn-ghost"><i class="fa-solid fa-play"></i> 성공사례 보기</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">1,840<span>+</span></div>
+          <div class="hero-stat-label">누적 사건 수임</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">94<span>%</span></div>
+          <div class="hero-stat-label">무죄·불기소 처분율</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">15<span>년</span></div>
+          <div class="hero-stat-label">전문 분야 집중 경력</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">24<span>/7</span></div>
+          <div class="hero-stat-label">긴급 상담 가능</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">무죄 판결</span>
+      <span class="marquee-item">불기소 처분</span>
+      <span class="marquee-item">집행유예</span>
+      <span class="marquee-item">무혐의</span>
+      <span class="marquee-item">성범죄 전문</span>
+      <span class="marquee-item">마약 전문</span>
+      <span class="marquee-item">긴급 대응</span>
+      <span class="marquee-item">15년 경력</span>
+      <span class="marquee-item">무죄 판결</span>
+      <span class="marquee-item">불기소 처분</span>
+      <span class="marquee-item">집행유예</span>
+      <span class="marquee-item">무혐의</span>
+      <span class="marquee-item">성범죄 전문</span>
+      <span class="marquee-item">마약 전문</span>
+      <span class="marquee-item">긴급 대응</span>
+      <span class="marquee-item">15년 경력</span>
+    </div>
+  </div>
+
+  <!-- PRACTICE AREAS -->
+  <section style="padding:100px 0">
+    <div class="section-inner">
+      <div class="practice-header">
+        <div>
+          <div class="section-label">전문 분야</div>
+          <h2 class="section-title">두 가지 분야,<br>하나의 목표</h2>
+        </div>
+        <a href="#" class="btn-ghost" style="color:var(--gray-600);border-color:var(--gray-200)">전체 분야 보기 →</a>
+      </div>
+    </div>
+    <div style="max-width:1320px;margin:0 auto;padding:0 32px">
+      <div class="practice-grid">
+        <div class="practice-card">
+          <div class="practice-num">01</div>
+          <h3 class="practice-name">성범죄 전문 변호</h3>
+          <p class="practice-desc">강간, 강제추행, 디지털 성범죄, 아동·청소년 대상 성범죄 등 모든 성범죄 사건에서 풍부한 무죄 판결 실적을 보유하고 있습니다. 사건 초기 단계부터 증거 분석과 피의자 진술 전략을 수립합니다.</p>
+          <div class="practice-tags">
+            <span class="tag">강간·강제추행</span>
+            <span class="tag">디지털 성범죄</span>
+            <span class="tag">아청법</span>
+            <span class="tag">성희롱</span>
+          </div>
+          <a href="#" class="practice-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="practice-card">
+          <div class="practice-num">02</div>
+          <h3 class="practice-name">마약 전문 변호</h3>
+          <p class="practice-desc">필로폰, 대마, 향정신성의약품 투약·소지·매매 사건에서 수사 기관의 절차적 위법성 검토 및 양형 최소화 전략을 통해 최선의 결과를 이끌어냅니다.</p>
+          <div class="practice-tags">
+            <span class="tag">필로폰</span>
+            <span class="tag">대마</span>
+            <span class="tag">향정신성 의약품</span>
+            <span class="tag">수입·밀반입</span>
+          </div>
+          <a href="#" class="practice-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAWYERS -->
+  <section class="lawyers-section">
+    <div class="section-inner">
+      <div class="practice-header" style="margin-bottom:48px">
+        <div>
+          <div class="section-label">변호사 소개</div>
+          <h2 class="section-title">전문가를 만나세요</h2>
+        </div>
+      </div>
+    </div>
+    <div class="lawyers-scroll-wrap">
+      <div class="lawyers-track">
+        <div class="lawyer-card">
+          <div class="lawyer-avatar"><i class="fa-solid fa-user"></i></div>
+          <div class="lawyer-name">김준혁</div>
+          <div class="lawyer-role">대표 변호사</div>
+          <ul class="lawyer-career">
+            <li>서울대학교 법학전문대학원</li>
+            <li>前 서울중앙지검 검사</li>
+            <li>성범죄 전담 변호 15년</li>
+            <li>무죄판결 340건 이상</li>
+          </ul>
+        </div>
+        <div class="lawyer-card">
+          <div class="lawyer-avatar"><i class="fa-solid fa-user"></i></div>
+          <div class="lawyer-name">이서연</div>
+          <div class="lawyer-role">파트너 변호사</div>
+          <ul class="lawyer-career">
+            <li>연세대학교 법학전문대학원</li>
+            <li>前 경찰청 자문위원</li>
+            <li>디지털 성범죄 전문</li>
+            <li>아청법 사건 전담</li>
+          </ul>
+        </div>
+        <div class="lawyer-card">
+          <div class="lawyer-avatar"><i class="fa-solid fa-user"></i></div>
+          <div class="lawyer-name">박도현</div>
+          <div class="lawyer-role">파트너 변호사</div>
+          <ul class="lawyer-career">
+            <li>고려대학교 법학전문대학원</li>
+            <li>마약·향정신성의약품 전문</li>
+            <li>수사절차 위법성 검토</li>
+            <li>불기소 처분 220건 이상</li>
+          </ul>
+        </div>
+        <div class="lawyer-card">
+          <div class="lawyer-avatar"><i class="fa-solid fa-user"></i></div>
+          <div class="lawyer-name">최윤아</div>
+          <div class="lawyer-role">어소시에이트</div>
+          <ul class="lawyer-career">
+            <li>성균관대학교 법학전문대학원</li>
+            <li>피해자 보호 제도 전문</li>
+            <li>증거 분석 및 반박 전략</li>
+            <li>조기 석방 전담</li>
+          </ul>
+        </div>
+        <div class="lawyer-card">
+          <div class="lawyer-avatar"><i class="fa-solid fa-user"></i></div>
+          <div class="lawyer-name">정민성</div>
+          <div class="lawyer-role">어소시에이트</div>
+          <ul class="lawyer-career">
+            <li>한양대학교 법학전문대학원</li>
+            <li>국제 마약 밀수 사건</li>
+            <li>몰수보전 대응 전문</li>
+            <li>항소심 전담팀</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section style="padding:0">
+    <div class="results-section">
+      <div class="results-inner">
+        <div class="results-top">
+          <div>
+            <div class="section-label">성공사례</div>
+            <h2 class="section-title">숫자가 말하는<br>클리어의 실력</h2>
+          </div>
+          <a href="#" class="btn-ghost" style="color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.15)">전체 사례 보기 →</a>
+        </div>
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-type">강제추행</div>
+            <div class="result-verdict verdict-success">무죄 판결</div>
+            <div class="result-summary">직장 내 강제추행 혐의로 기소된 50대 임원. 피해자 진술의 일관성 결여와 CCTV 분석을 통해 무죄를 이끌어냄.</div>
+            <div class="result-meta"><span>서울고등법원</span><span>2024. 03</span></div>
+          </div>
+          <div class="result-card">
+            <div class="result-type">필로폰 투약</div>
+            <div class="result-verdict verdict-success">불기소 (혐의없음)</div>
+            <div class="result-summary">국제선 입국 후 적발된 40대 사업가. 모발 감정 오류 및 감정 기관의 절차적 위법을 입증하여 혐의없음 처분.</div>
+            <div class="result-meta"><span>인천공항</span><span>2024. 01</span></div>
+          </div>
+          <div class="result-card">
+            <div class="result-type">아동·청소년 성착취물</div>
+            <div class="result-verdict verdict-success">집행유예</div>
+            <div class="result-summary">SNS를 통한 아청법 위반 혐의. 초범·반성·치료 의지를 체계적으로 소명하여 실형을 면하고 사회봉사로 대체.</div>
+            <div class="result-meta"><span>수원지방법원</span><span>2023. 11</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="section-inner">
+      <div class="section-label">사건 대응 절차</div>
+      <h2 class="section-title">의뢰부터 판결까지</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <div class="step-title">긴급 상담</div>
+          <div class="step-desc">24시간 대응, 즉시 방어권 확보</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <div class="step-title">사건 분석</div>
+          <div class="step-desc">증거·진술 검토, 전략 수립</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <div class="step-title">수사 대응</div>
+          <div class="step-desc">경찰·검찰 조사 동행 및 진술 지도</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <div class="step-title">공판 준비</div>
+          <div class="step-desc">증거 분석, 반박 자료 준비</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">05</div>
+          <div class="step-title">선고</div>
+          <div class="step-desc">최선의 결과 도출 및 항소 검토</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULT FORM -->
+  <section class="consult-section" style="padding:0">
+    <div class="consult-inner">
+      <div class="consult-copy">
+        <div class="section-label">무료 상담 신청</div>
+        <h2 class="section-title">지금 바로<br>연락하세요</h2>
+        <p>경찰 조사 통보, 고소장 접수, 체포 등 어떤 상황에서도 즉시 대응합니다. 상담 내용은 철저히 비밀이 보장됩니다.</p>
+        <div class="consult-guarantees">
+          <div class="guarantee-item"><i class="fa-solid fa-lock"></i> 상담 내용 철저 비밀 보장</div>
+          <div class="guarantee-item"><i class="fa-solid fa-clock"></i> 24시간 긴급 대응 가능</div>
+          <div class="guarantee-item"><i class="fa-solid fa-shield-halved"></i> 초기 상담 완전 무료</div>
+          <div class="guarantee-item"><i class="fa-solid fa-user-tie"></i> 담당 변호사 직접 상담</div>
+        </div>
+      </div>
+      <div class="form-wrap">
+        <form onsubmit="return false">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">이름</label>
+              <input type="text" class="form-control" placeholder="홍길동">
+            </div>
+            <div class="form-group">
+              <label class="form-label">연락처</label>
+              <input type="tel" class="form-control" placeholder="010-0000-0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">사건 유형</label>
+            <select class="form-control">
+              <option value="">사건 유형을 선택하세요</option>
+              <option>강간·강제추행</option>
+              <option>디지털 성범죄</option>
+              <option>아동·청소년 대상 성범죄</option>
+              <option>필로폰·마약 투약</option>
+              <option>마약 소지·매매</option>
+              <option>기타</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">상담 내용</label>
+            <textarea class="form-control" placeholder="사건 내용을 간략히 적어주세요. 비밀이 보장됩니다."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">무료 상담 신청하기 <i class="fa-solid fa-arrow-right"></i></button>
+          <p class="form-notice">개인정보는 상담 목적으로만 사용되며, 상담 종료 후 즉시 파기됩니다.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo-name">법무법인 <span>클리어</span></div>
+          <div class="footer-logo-sub">Law Firm Clear</div>
+          <p class="footer-addr">
+            서울특별시 서초구 서초대로 123<br>
+            클리어빌딩 10층<br>
+            사업자번호: 000-00-00000
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">바로가기</div>
+          <div class="footer-links">
+            <a href="#">법무법인 소개</a>
+            <a href="#">전문분야 — 성범죄</a>
+            <a href="#">전문분야 — 마약</a>
+            <a href="#">성공사례</a>
+            <a href="#">변호사 소개</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">법률 정보</div>
+          <div class="footer-links">
+            <a href="#">성범죄 처벌 기준</a>
+            <a href="#">마약 관련 법률</a>
+            <a href="#">체포·구속 절차</a>
+            <a href="#">불기소 처분이란</a>
+            <a href="#">항소심 대응</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">긴급 상담</div>
+          <div class="footer-tel">02-000-0000</div>
+          <div class="footer-tel-label">24시간 긴급 대응</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 법무법인 클리어. All rights reserved.</span>
+        <span>개인정보처리방침 · 이용약관</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <a href="tel:02-000-0000" class="bottom-bar-item">
+      <i class="fa-solid fa-phone"></i>
+      <span>전화 상담</span>
+    </a>
+    <a href="#" class="bottom-bar-item">
+      <i class="fa-brands fa-kakao" style="color:#fee500"></i>
+      <span>카카오톡</span>
+    </a>
+    <a href="#" class="bottom-bar-item primary">
+      <i class="fa-solid fa-pen-to-square"></i>
+      <span>무료 상담 신청</span>
+    </a>
+  </div>
+
+</div><!-- /page-main -->
+
+<!-- ============================================================
+     PAGE 2: PRACTICE DETAIL (성범죄)
+     ============================================================ -->
+<div id="page-practice" class="page-content">
+
+  <div class="detail-hero">
+    <div class="detail-hero-inner">
+      <div class="breadcrumb">
+        <a href="#">홈</a><span>/</span><a href="#">전문분야</a><span>/</span><span style="color:rgba(255,255,255,.6)">성범죄</span>
+      </div>
+      <h1 class="detail-title"><em>성범죄</em><br>전문 변호</h1>
+      <p class="detail-lead">혐의 인정 여부와 관계없이, 법적 절차 전반에서 의뢰인의 권리를 최대한 보호합니다. 사건 유형별 맞춤 전략으로 최선의 결과를 이끌어냅니다.</p>
+    </div>
+  </div>
+
+  <!-- ACCORDION -->
+  <section class="accordion-section">
+    <div class="accordion-inner">
+      <div class="accordion-nav">
+        <div class="accordion-nav-title">사건 유형</div>
+        <span class="accordion-nav-item active">강간·준강간</span>
+        <span class="accordion-nav-item">강제추행</span>
+        <span class="accordion-nav-item">디지털 성범죄</span>
+        <span class="accordion-nav-item">아동·청소년 성범죄</span>
+        <span class="accordion-nav-item">성희롱</span>
+        <span class="accordion-nav-item">통신매체 이용 음란</span>
+      </div>
+      <div>
+        <div class="accordion-list">
+
+          <div class="accordion-item open">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="accordion-header-left">
+                <span class="accordion-idx">01</span>
+                <span class="accordion-name">강간·준강간</span>
+              </div>
+              <div class="accordion-icon"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="accordion-body">
+              <p>형법 제297조에 규정된 강간죄는 피해자의 의사에 반하여 폭행·협박으로 간음한 경우 성립합니다. 준강간은 심신상실·항거불능 상태를 이용한 경우로, 무고 가능성이 높은 유형 중 하나입니다.</p>
+              <p><strong style="font-weight:700;color:var(--charcoal)">클리어의 대응 전략</strong></p>
+              <ul>
+                <li>피해자 진술의 일관성 및 신빙성 집중 분석</li>
+                <li>DNA·체액 등 과학적 증거 전문가 감정 의뢰</li>
+                <li>CCTV·통화기록·카드내역 교차 분석</li>
+                <li>심신미약·음주 상태 주장 입증 자료 구성</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="accordion-header-left">
+                <span class="accordion-idx">02</span>
+                <span class="accordion-name">강제추행</span>
+              </div>
+              <div class="accordion-icon"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="accordion-body">
+              <p>강제추행은 신체 접촉에 대한 양측의 인식 차이에서 비롯되는 경우가 많아 피해자 진술의 구체성과 일관성이 핵심 쟁점이 됩니다.</p>
+              <ul>
+                <li>접촉 상황 재현 및 목격자 확보</li>
+                <li>피해자와의 이전 관계 및 맥락 분석</li>
+                <li>신고 지연 사유 및 행동 패턴 반박</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="accordion-header-left">
+                <span class="accordion-idx">03</span>
+                <span class="accordion-name">디지털 성범죄 (촬영죄·유포)</span>
+              </div>
+              <div class="accordion-icon"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="accordion-body">
+              <p>성폭력처벌법 제14조에 규정된 불법 촬영·유포죄는 성립 요건이 엄격하며, 촬영 행위의 고의성과 동의 여부가 핵심 쟁점입니다.</p>
+              <ul>
+                <li>디지털 포렌식 결과 분석 및 반박</li>
+                <li>촬영 파일의 유통 경로 및 배포 의도 검토</li>
+                <li>합의 촬영 입증 자료 확보</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="accordion-header-left">
+                <span class="accordion-idx">04</span>
+                <span class="accordion-name">아동·청소년 대상 성범죄</span>
+              </div>
+              <div class="accordion-icon"><i class="fa-solid fa-plus"></i></div>
+            </div>
+            <div class="accordion-body">
+              <p>아청법 위반 사건은 법정 가중처벌 대상으로, 처음부터 체계적인 방어 전략 없이는 실형을 피하기 어렵습니다.</p>
+              <ul>
+                <li>피해자 연령 입증 자료 검토</li>
+                <li>온라인 대화 내용의 법적 해석</li>
+                <li>위장수사 여부 및 함정수사 항변</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <div class="steps-section">
+    <div class="steps-inner">
+      <div class="section-label">대응 절차</div>
+      <h2 class="section-title">클리어의 사건 처리 프로세스</h2>
+      <div class="steps-horizontal">
+        <div class="step-block">
+          <div class="step-block-num">01</div>
+          <div class="step-block-title">긴급 접수</div>
+          <div class="step-block-desc">24시간 내 담당 변호사 배정, 즉시 대응 개시</div>
+        </div>
+        <div class="step-block">
+          <div class="step-block-num">02</div>
+          <div class="step-block-title">증거 분석</div>
+          <div class="step-block-desc">고소장·수사자료 검토, 반박 근거 발굴</div>
+        </div>
+        <div class="step-block">
+          <div class="step-block-num">03</div>
+          <div class="step-block-title">수사 동행</div>
+          <div class="step-block-desc">경찰·검찰 조사 동행, 진술 전략 지도</div>
+        </div>
+        <div class="step-block">
+          <div class="step-block-num">04</div>
+          <div class="step-block-title">의견서 제출</div>
+          <div class="step-block-desc">불기소 의견서·탄원서 작성 및 제출</div>
+        </div>
+        <div class="step-block">
+          <div class="step-block-num">05</div>
+          <div class="step-block-title">공판 대응</div>
+          <div class="step-block-desc">기소 시 공판 전략 수립 및 최후 변론</div>
+        </div>
+        <div class="step-block">
+          <div class="step-block-num">06</div>
+          <div class="step-block-title">선고 후 대응</div>
+          <div class="step-block-desc">항소·상고 여부 검토 및 집행 대응</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <a href="tel:02-000-0000" class="bottom-bar-item"><i class="fa-solid fa-phone"></i><span>전화 상담</span></a>
+    <a href="#" class="bottom-bar-item"><i class="fa-brands fa-kakao" style="color:#fee500"></i><span>카카오톡</span></a>
+    <a href="#" class="bottom-bar-item primary"><i class="fa-solid fa-pen-to-square"></i><span>무료 상담 신청</span></a>
+  </div>
+
+</div><!-- /page-practice -->
+
+<!-- ============================================================
+     PAGE 3: CASES LIST
+     ============================================================ -->
+<div id="page-cases" class="page-content">
+
+  <div class="cases-header">
+    <div class="section-inner">
+      <div class="section-label" style="color:rgba(255,255,255,.4)">성공사례</div>
+      <h1 class="section-title" style="color:#fff">클리어가 이겨낸<br>사건들</h1>
+    </div>
+  </div>
+
+  <div class="cases-filter">
+    <div class="cases-filter-inner">
+      <button class="filter-btn active">전체</button>
+      <button class="filter-btn">강간·강제추행</button>
+      <button class="filter-btn">디지털 성범죄</button>
+      <button class="filter-btn">아청법</button>
+      <button class="filter-btn">마약 투약</button>
+      <button class="filter-btn">마약 소지·매매</button>
+      <button class="filter-btn">기타</button>
+      <div class="filter-search">
+        <input type="text" class="filter-input" placeholder="사건 검색...">
+      </div>
+    </div>
+  </div>
+
+  <div class="cases-list-inner">
+
+    <div class="case-item" onclick="switchPage('case-detail')">
+      <div class="case-num">NO. 001</div>
+      <div class="case-content">
+        <div class="case-type-tag">강제추행</div>
+        <div class="case-title">직장 내 강제추행 혐의 — 피해자 진술 신빙성 탄핵으로 무죄 판결</div>
+        <div class="case-excerpt">50대 임원이 회식 자리에서 강제추행을 했다는 혐의로 기소됐으나, 피해자 진술의 일관성 결여와 CCTV 영상 분석을 통해 무죄를 이끌어냄.</div>
+        <div class="case-meta"><span>서울고등법원 2024. 03</span><span>담당: 김준혁 변호사</span></div>
+      </div>
+      <div class="case-verdict">
+        <div class="case-verdict-text verdict-success">무죄</div>
+        <div class="case-verdict-label">판결 결과</div>
+      </div>
+    </div>
+
+    <div class="case-item" onclick="switchPage('case-detail')">
+      <div class="case-num">NO. 002</div>
+      <div class="case-content">
+        <div class="case-type-tag">필로폰 투약</div>
+        <div class="case-title">국제선 입국 후 마약 양성 반응 — 감정 절차 위법으로 혐의없음 처분</div>
+        <div class="case-excerpt">인천공항에서 입국 시 모발 감정으로 필로폰 양성이 나왔으나 감정 기관의 시료 관리 절차 위법을 입증하여 혐의없음 처분.</div>
+        <div class="case-meta"><span>인천지방검찰청 2024. 01</span><span>담당: 박도현 변호사</span></div>
+      </div>
+      <div class="case-verdict">
+        <div class="case-verdict-text verdict-success">혐의없음</div>
+        <div class="case-verdict-label">불기소 처분</div>
+      </div>
+    </div>
+
+    <div class="case-item" onclick="switchPage('case-detail')">
+      <div class="case-num">NO. 003</div>
+      <div class="case-content">
+        <div class="case-type-tag">아동·청소년 성착취물</div>
+        <div class="case-title">SNS 아청법 위반 혐의 — 체계적 양형 소명으로 집행유예 선고</div>
+        <div class="case-excerpt">텔레그램을 통해 아동성착취물을 소지한 혐의로 기소된 30대 직장인. 초범·진지한 반성·치료 의지를 입증하여 실형 면함.</div>
+        <div class="case-meta"><span>수원지방법원 2023. 11</span><span>담당: 이서연 변호사</span></div>
+      </div>
+      <div class="case-verdict">
+        <div class="case-verdict-text verdict-success">집행유예</div>
+        <div class="case-verdict-label">판결 결과</div>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-num">NO. 004</div>
+      <div class="case-content">
+        <div class="case-type-tag">준강간</div>
+        <div class="case-title">술자리 준강간 무고 사건 — 피해자 이후 행동 분석으로 무혐의 처분</div>
+        <div class="case-excerpt">음주 후 숙소에서 준강간을 했다는 허위 신고. 사건 당일 이후 피해자와의 메시지 교환, 재만남 사실 등을 입증하여 무혐의.</div>
+        <div class="case-meta"><span>서울남부지검 2023. 09</span><span>담당: 김준혁 변호사</span></div>
+      </div>
+      <div class="case-verdict">
+        <div class="case-verdict-text verdict-success">무혐의</div>
+        <div class="case-verdict-label">불기소 처분</div>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-num">NO. 005</div>
+      <div class="case-content">
+        <div class="case-type-tag">대마 소지</div>
+        <div class="case-title">해외 대마 반입 혐의 — 고의성 부재 입증으로 기소유예 처분</div>
+        <div class="case-excerpt">해외에서 합법적으로 구매한 CBD 제품에 THC 성분이 포함되어 있어 마약류 관리법 위반 혐의. 고의성 부재와 법률 착오를 입증하여 기소유예.</div>
+        <div class="case-meta"><span>부산지방검찰청 2023. 07</span><span>담당: 박도현 변호사</span></div>
+      </div>
+      <div class="case-verdict">
+        <div class="case-verdict-text">기소유예</div>
+        <div class="case-verdict-label">처분 결과</div>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <button class="page-btn nav"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button>
+      <button class="page-btn">5</button>
+      <button class="page-btn nav"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+  </div>
+
+  <div class="bottom-bar">
+    <a href="tel:02-000-0000" class="bottom-bar-item"><i class="fa-solid fa-phone"></i><span>전화 상담</span></a>
+    <a href="#" class="bottom-bar-item"><i class="fa-brands fa-kakao" style="color:#fee500"></i><span>카카오톡</span></a>
+    <a href="#" class="bottom-bar-item primary"><i class="fa-solid fa-pen-to-square"></i><span>무료 상담 신청</span></a>
+  </div>
+
+</div><!-- /page-cases -->
+
+<!-- ============================================================
+     PAGE 4: CASE DETAIL
+     ============================================================ -->
+<div id="page-case-detail" class="page-content">
+
+  <div class="case-detail-hero">
+    <div class="case-detail-inner">
+      <div class="breadcrumb">
+        <a href="#" onclick="switchPage('cases');return false">성공사례</a><span>/</span><span style="color:rgba(255,255,255,.6)">사례 상세</span>
+      </div>
+      <div class="case-detail-type">강제추행 · 무죄 판결</div>
+      <h1 class="case-detail-title">직장 내 강제추행 혐의<br>피해자 진술 신빙성 탄핵으로<br>무죄 판결</h1>
+      <div class="case-detail-meta">
+        <div class="case-meta-item">담당 법원<strong>서울고등법원</strong></div>
+        <div class="case-meta-item">사건 기간<strong>2023. 06 — 2024. 03</strong></div>
+        <div class="case-meta-item">담당 변호사<strong>김준혁 변호사</strong></div>
+        <div class="case-meta-item">최종 결과<strong style="color:var(--crimson)">무죄 판결</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="timeline-section">
+    <div class="timeline-inner">
+      <div class="section-label">사건 타임라인</div>
+      <h2 class="section-title">사건 개요와 변호 전략</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot">01</div>
+          <div class="timeline-content">
+            <div class="timeline-phase">사건 개요</div>
+            <h3>회식 자리에서 강제추행 혐의 발생</h3>
+            <p>의뢰인 A씨(54세, 대기업 임원)는 팀 회식 종료 후 엘리베이터에서 부하 직원 B씨를 강제추행했다는 혐의로 고소를 당했습니다. B씨는 A씨가 신체 특정 부위를 손으로 만졌다고 주장하며 경찰에 신고했습니다.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">02</div>
+          <div class="timeline-content">
+            <div class="timeline-phase">초기 대응 (수임 후 48시간)</div>
+            <h3>증거 확보 및 현장 분석 즉시 개시</h3>
+            <p>수임 직후 엘리베이터 CCTV 영상 확보를 요청했습니다. 또한 회식 장소 내 CCTV, 목격자 연락처, 당일 단체 카카오톡 대화 내역을 확보하여 사건 당일의 상황을 재구성했습니다.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">03</div>
+          <div class="timeline-content">
+            <div class="timeline-phase">핵심 쟁점 발굴</div>
+            <h3>피해자 진술의 3가지 모순점 발견</h3>
+            <p>경찰 조사 진술, 검찰 진술, 법정 진술 간 사건 발생 위치·시각·상황 묘사에 3가지 핵심 모순이 있음을 확인했습니다. CCTV 영상과 피해자 진술 시간대가 15분 이상 불일치했으며, 엘리베이터 내 촬영 각도상 피해자가 주장한 행위는 물리적으로 불가능했습니다.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">04</div>
+          <div class="timeline-content">
+            <div class="timeline-phase">공판 전략</div>
+            <h3>영상 전문가 감정 신청 및 증거 제출</h3>
+            <p>디지털 포렌식 전문가를 선임하여 CCTV 영상의 타임스탬프 분석 보고서를 법원에 제출했습니다. 또한 피해자가 사건 이후에도 A씨에게 업무 관련 메시지를 정상적으로 보낸 기록을 증거로 제출하여 피해자 진술의 신빙성을 탄핵했습니다.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item highlight">
+          <div class="timeline-dot">05</div>
+          <div class="timeline-content">
+            <div class="timeline-phase">최종 결과</div>
+            <h3>항소심 무죄 판결 선고</h3>
+            <p>1심에서 벌금 500만원 유죄 판결이 내려졌으나 즉시 항소했습니다. 항소심 재판부는 피해자 진술의 신빙성이 의심스럽고 CCTV 영상과의 불일치를 이유로 무죄를 선고했습니다.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="case-result-box">
+        <div class="section-label">최종 판결</div>
+        <h2>무죄 — 서울고등법원</h2>
+        <p>"피해자의 진술은 구체적·일관성이 부족하고, 객관적 증거인 CCTV 영상과 상당한 불일치가 있어 이를 그대로 믿기 어렵다. 피고인에게 무죄를 선고한다." — 판결 요지</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="bottom-bar">
+    <a href="tel:02-000-0000" class="bottom-bar-item"><i class="fa-solid fa-phone"></i><span>전화 상담</span></a>
+    <a href="#" class="bottom-bar-item"><i class="fa-brands fa-kakao" style="color:#fee500"></i><span>카카오톡</span></a>
+    <a href="#" class="bottom-bar-item primary"><i class="fa-solid fa-pen-to-square"></i><span>무료 상담 신청</span></a>
+  </div>
+
+</div><!-- /page-case-detail -->
+
+<!-- ============================================================
+     PAGE 5: CONSULT
+     ============================================================ -->
+<div id="page-consult" class="page-content">
+
+  <div class="consult-page-hero">
+    <div class="consult-page-inner">
+      <div class="consult-page-copy">
+        <div class="section-label" style="color:rgba(255,255,255,.4)">온라인 상담 신청</div>
+        <h1 class="section-title" style="color:#fff;margin-bottom:24px">지금 이 순간<br>도움을 드립니다</h1>
+        <p>혐의를 받은 순간부터 시간이 가장 중요합니다. 24시간 언제든지 상담을 신청하면 1시간 내에 담당 변호사가 직접 연락드립니다.</p>
+        <div class="consult-promises">
+          <div class="promise-item">
+            <div class="promise-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="promise-text">
+              <h4>100% 비밀 보장</h4>
+              <p>상담 내용은 어떠한 경우에도 외부에 유출되지 않습니다.</p>
+            </div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon"><i class="fa-solid fa-clock"></i></div>
+            <div class="promise-text">
+              <h4>1시간 내 회신</h4>
+              <p>신청 즉시 담당 변호사가 직접 연락드립니다.</p>
+            </div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon"><i class="fa-solid fa-won-sign"></i></div>
+            <div class="promise-text">
+              <h4>초기 상담 무료</h4>
+              <p>첫 번째 상담은 완전 무료입니다. 부담 없이 연락하세요.</p>
+            </div>
+          </div>
+          <div class="promise-item">
+            <div class="promise-icon"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="promise-text">
+              <h4>전문 변호사 직접 상담</h4>
+              <p>사무장이나 직원이 아닌 담당 변호사가 직접 상담합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="consult-page-form">
+        <h2 class="consult-form-title">무료 상담 신청서</h2>
+        <div class="form-step-indicator">
+          <div class="fsi-item active">01 기본 정보</div>
+          <div class="fsi-item">02 사건 내용</div>
+          <div class="fsi-item">03 완료</div>
+        </div>
+        <form onsubmit="return false">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">이름 *</label>
+              <input type="text" class="form-control" placeholder="홍길동">
+            </div>
+            <div class="form-group">
+              <label class="form-label">연락처 *</label>
+              <input type="tel" class="form-control" placeholder="010-0000-0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">이메일</label>
+            <input type="email" class="form-control" placeholder="example@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">사건 유형 *</label>
+            <select class="form-control">
+              <option value="">선택하세요</option>
+              <option>강간·강제추행</option>
+              <option>디지털 성범죄 (불법촬영·유포)</option>
+              <option>아동·청소년 대상 성범죄</option>
+              <option>필로폰·마약 투약</option>
+              <option>마약 소지·매매</option>
+              <option>통신매체 이용 음란</option>
+              <option>기타 성범죄</option>
+              <option>기타 형사사건</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">현재 상황</label>
+            <select class="form-control">
+              <option value="">현재 상황을 선택하세요</option>
+              <option>고소장 접수 통보를 받았습니다</option>
+              <option>경찰 조사 통보를 받았습니다</option>
+              <option>구속영장이 발부되었습니다</option>
+              <option>기소되어 재판 중입니다</option>
+              <option>판결이 선고되었습니다 (항소 검토)</option>
+              <option>아직 사건화되지 않았습니다</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">상담 선호 시간대</label>
+            <div class="time-slots">
+              <div class="time-slot selected">오전 (09–12시)</div>
+              <div class="time-slot">오후 (12–18시)</div>
+              <div class="time-slot">저녁 (18–21시)</div>
+              <div class="time-slot">야간 (21시 이후)</div>
+              <div class="time-slot">주말 가능</div>
+              <div class="time-slot">언제든지</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">상담 내용</label>
+            <textarea class="form-control" placeholder="사건 내용을 간략히 적어주세요. 모든 내용은 비밀이 보장됩니다." style="height:120px"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">무료 상담 신청하기 <i class="fa-solid fa-arrow-right"></i></button>
+          <p class="form-notice">입력하신 개인정보는 상담 목적으로만 사용됩니다.<br>상담 완료 후 고객 요청 시 즉시 파기됩니다.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <a href="tel:02-000-0000" class="bottom-bar-item"><i class="fa-solid fa-phone"></i><span>전화 상담</span></a>
+    <a href="#" class="bottom-bar-item"><i class="fa-brands fa-kakao" style="color:#fee500"></i><span>카카오톡</span></a>
+    <a href="#" class="bottom-bar-item primary"><i class="fa-solid fa-pen-to-square"></i><span>무료 상담 신청</span></a>
+  </div>
+
+</div><!-- /page-consult -->
+
+<script>
+// Page switching
+function switchPage(id) {
+  document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.main-nav .nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const navItems = document.querySelectorAll('.main-nav .nav-item');
+  const map = { main: 0, practice: 1, cases: 2, 'case-detail': 2, consult: 3 };
+  if (navItems[map[id]]) navItems[map[id]].classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// Accordion
+function toggleAccordion(header) {
+  const item = header.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Filter tabs
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Time slot selection
+document.querySelectorAll('.time-slot').forEach(slot => {
+  slot.addEventListener('click', function() {
+    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+    this.classList.add('selected');
+  });
+});
+
+// Accordion nav active state
+document.querySelectorAll('.accordion-nav-item').forEach(item => {
+  item.addEventListener('click', function() {
+    document.querySelectorAll('.accordion-nav-item').forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
