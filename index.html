@@ -22,11 +22,10 @@
   --crimson-light: #e74c3c;
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
-
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Noto Sans KR',sans-serif;color:var(--text-primary);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:'Noto Sans KR',sans-serif;color:var(--text-primary);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:58px}
 
 /* ===== PAGE TABS ===== */
 .page-content{display:none}
@@ -49,8 +48,23 @@ body{font-family:'Noto Sans KR',sans-serif;color:var(--text-primary);background:
 .emergency-tel i{color:var(--crimson);font-size:14px}
 .btn-header{background:var(--crimson);color:#fff;padding:10px 22px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.05em;transition:background .2s;border:none;cursor:pointer}
 .btn-header:hover{background:var(--crimson-dark)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
-.hamburger span{width:22px;height:1.5px;background:var(--charcoal);display:block}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:1100}
+.hamburger span{width:22px;height:1.5px;background:var(--charcoal);display:block;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ===== MOBILE MENU DRAWER ===== */
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--charcoal);z-index:1050;flex-direction:column;padding:80px 32px 40px;overflow-y:auto}
+.mobile-menu.open{display:flex}
+.mobile-menu-nav{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.1)}
+.mobile-menu-nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:22px;font-weight:700;letter-spacing:-.02em;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;transition:color .2s}
+.mobile-menu-nav a:hover{color:#fff}
+.mobile-menu-nav a i{font-size:14px;color:rgba(255,255,255,.3)}
+.mobile-menu-footer{margin-top:auto;padding-top:32px}
+.mobile-menu-tel{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.03em;margin-bottom:8px}
+.mobile-menu-tel-label{font-size:11px;color:var(--crimson);letter-spacing:.1em;font-weight:700;text-transform:uppercase;margin-bottom:24px}
+.mobile-menu-cta{background:var(--crimson);color:#fff;padding:16px 32px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.05em;display:inline-block;text-align:center;width:100%}
 
 /* ===== BOTTOM CONSULT BAR ===== */
 .bottom-bar{position:fixed;bottom:0;left:0;right:0;z-index:1500;background:var(--charcoal);display:flex;align-items:stretch;height:58px}
@@ -67,19 +81,19 @@ section{padding:100px 0}
 
 /* ===== HERO ===== */
 .hero{min-height:100vh;background:var(--charcoal);display:flex;align-items:center;position:relative;overflow:hidden}
-.hero-bg-text{position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:clamp(140px,18vw,260px);font-weight:900;color:rgba(255,255,255,.03);letter-spacing:-.05em;line-height:1;pointer-events:none;user-select:none;white-space:nowrap}
+.hero-bg-text{position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:clamp(80px,14vw,220px);font-weight:900;color:rgba(255,255,255,.03);letter-spacing:-.05em;line-height:1;pointer-events:none;user-select:none;white-space:nowrap;overflow:hidden;max-width:60vw}
 .hero-inner{max-width:1320px;margin:0 auto;padding:80px 32px;position:relative;z-index:1}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--crimson);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:32px}
 .hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--crimson)}
 .hero-title{font-size:clamp(42px,7vw,100px);font-weight:900;color:#fff;line-height:1.0;letter-spacing:-.04em;margin-bottom:40px}
 .hero-title em{color:var(--crimson);font-style:normal}
-.hero-desc{color:rgba(255,255,255,.55);font-size:clamp(14px,1.5vw,18px);font-weight:300;max-width:480px;line-height:1.8;margin-bottom:56px}
+.hero-desc{color:rgba(255,255,255,.7);font-size:clamp(14px,1.5vw,18px);font-weight:300;max-width:480px;line-height:1.8;margin-bottom:56px}
 .hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .btn-primary{background:var(--crimson);color:#fff;padding:18px 40px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.06em;display:inline-flex;align-items:center;gap:10px;transition:all .2s;border:none;cursor:pointer}
 .btn-primary:hover{background:var(--crimson-dark);transform:translateX(4px)}
 .btn-primary i{transition:transform .2s}
 .btn-primary:hover i{transform:translateX(4px)}
-.btn-ghost{color:rgba(255,255,255,.6);font-size:13px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:all .2s;letter-spacing:.03em}
+.btn-ghost{color:rgba(255,255,255,.75);font-size:13px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;transition:all .2s;letter-spacing:.03em}
 .btn-ghost:hover{color:#fff;border-color:#fff}
 .hero-stats{margin-top:80px;display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1);padding-top:48px}
 .hero-stat{flex:1;padding-right:40px;border-right:1px solid rgba(255,255,255,.08)}
@@ -87,7 +101,7 @@ section{padding:100px 0}
 .hero-stat:not(:first-child):not(:last-child){padding:0 40px}
 .hero-stat-num{font-size:clamp(36px,4vw,56px);font-weight:900;color:#fff;letter-spacing:-.04em;line-height:1}
 .hero-stat-num span{color:var(--crimson)}
-.hero-stat-label{font-size:12px;color:rgba(255,255,255,.4);margin-top:8px;letter-spacing:.05em}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.6);margin-top:8px;letter-spacing:.05em}
 
 /* ===== MARQUEE ===== */
 .marquee-section{background:var(--crimson);overflow:hidden;padding:18px 0}
@@ -115,10 +129,13 @@ section{padding:100px 0}
 
 /* ===== LAWYERS ===== */
 .lawyers-section{background:var(--off-white)}
-.lawyers-scroll-wrap{overflow-x:auto;scrollbar-width:none;margin:0 -32px;padding:0 32px}
-.lawyers-scroll-wrap::-webkit-scrollbar{display:none}
-.lawyers-track{display:flex;gap:2px;width:max-content;padding-bottom:8px}
-.lawyer-card{width:300px;background:#fff;flex-shrink:0;padding:40px 32px;transition:all .3s;border-bottom:3px solid transparent;cursor:pointer}
+.lawyers-scroll-wrap{overflow-x:auto;margin:0 -32px;padding:0 32px;scrollbar-width:thin;scrollbar-color:var(--gray-200) transparent}
+.lawyers-scroll-wrap::-webkit-scrollbar{height:4px}
+.lawyers-scroll-wrap::-webkit-scrollbar-track{background:transparent}
+.lawyers-scroll-wrap::-webkit-scrollbar-thumb{background:var(--gray-200);border-radius:2px}
+.lawyers-scroll-wrap::-webkit-scrollbar-thumb:hover{background:var(--gray-400)}
+.lawyers-track{display:flex;gap:2px;width:max-content;padding-bottom:12px}
+.lawyer-card{width:clamp(240px,22vw,300px);background:#fff;flex-shrink:0;padding:40px 32px;transition:all .3s;border-bottom:3px solid transparent;cursor:pointer}
 .lawyer-card:hover{border-bottom-color:var(--crimson);transform:translateY(-4px)}
 .lawyer-avatar{width:72px;height:72px;background:var(--gray-200);margin-bottom:24px;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--gray-400)}
 .lawyer-name{font-size:20px;font-weight:900;color:var(--charcoal);letter-spacing:-.03em;margin-bottom:4px}
@@ -131,15 +148,15 @@ section{padding:100px 0}
 .results-section{background:var(--charcoal)}
 .results-inner{max-width:1320px;margin:0 auto;padding:100px 32px}
 .results-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:72px}
-.results-top .section-label{color:rgba(255,255,255,.4)}
+.results-top .section-label{color:rgba(255,255,255,.6)}
 .results-top .section-title{color:#fff}
-.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08)}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.12)}
 .result-card{background:var(--charcoal);padding:40px;transition:background .3s;cursor:pointer}
 .result-card:hover{background:var(--charcoal-light)}
 .result-type{font-size:10px;font-weight:700;color:var(--crimson);letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
-.result-verdict{font-size:26px;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:12px;line-height:1.2}
-.result-summary{font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:20px}
-.result-meta{font-size:11px;color:rgba(255,255,255,.25);display:flex;gap:16px}
+.result-verdict{font-size:clamp(18px,2vw,26px);font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:12px;line-height:1.2}
+.result-summary{font-size:13px;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:20px}
+.result-meta{font-size:11px;color:rgba(255,255,255,.55);display:flex;gap:16px}
 
 /* ===== PROCESS ===== */
 .process-section{background:#fff}
@@ -149,7 +166,7 @@ section{padding:100px 0}
 .step-num{width:56px;height:56px;background:#fff;border:1px solid var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:13px;font-weight:700;color:var(--charcoal);transition:all .3s}
 .process-step:hover .step-num{background:var(--crimson);color:#fff;border-color:var(--crimson)}
 .step-title{font-size:14px;font-weight:700;color:var(--charcoal);margin-bottom:8px;letter-spacing:-.01em}
-.step-desc{font-size:12px;color:var(--gray-400);line-height:1.7}
+.step-desc{font-size:12px;color:var(--gray-600);line-height:1.7}
 
 /* ===== CONSULT FORM ===== */
 .consult-section{background:var(--off-white)}
@@ -172,39 +189,46 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
 .btn-submit:hover{background:var(--crimson-dark)}
 .form-notice{font-size:11px;color:var(--gray-400);text-align:center;margin-top:16px;line-height:1.7}
 
+/* ===== CHECKBOX / RADIO ===== */
+input[type="checkbox"],input[type="radio"]{-webkit-appearance:none;appearance:none;width:16px;height:16px;border:1.5px solid var(--gray-400);border-radius:2px;cursor:pointer;position:relative;flex-shrink:0;vertical-align:middle;transition:all .2s}
+input[type="radio"]{border-radius:50%}
+input[type="checkbox"]:checked,input[type="radio"]:checked{background:var(--crimson);border-color:var(--crimson)}
+input[type="checkbox"]:checked::after{content:'';position:absolute;left:4px;top:1px;width:5px;height:9px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg)}
+input[type="radio"]:checked::after{content:'';position:absolute;left:3px;top:3px;width:8px;height:8px;background:#fff;border-radius:50%}
+
 /* ===== FOOTER ===== */
 .site-footer{background:var(--charcoal);padding:64px 0 80px}
 .footer-inner{max-width:1320px;margin:0 auto;padding:0 32px}
 .footer-top{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:40px;margin-bottom:56px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
 .footer-logo-name{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:4px}
 .footer-logo-name span{color:var(--crimson)}
-.footer-logo-sub{font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
-.footer-addr{font-size:12px;color:rgba(255,255,255,.4);line-height:1.9}
-.footer-col-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
+.footer-logo-sub{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+.footer-addr{font-size:12px;color:rgba(255,255,255,.55);line-height:1.9}
+.footer-col-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
 .footer-links{display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:#fff}
 .footer-tel{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
 .footer-tel-label{font-size:11px;color:var(--crimson);letter-spacing:.1em;font-weight:700;text-transform:uppercase}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,.2)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,.3)}
 
 /* =========================================================
    PAGE 2: PRACTICE DETAIL (성범죄)
    ========================================================= */
 .detail-hero{background:var(--charcoal);padding:120px 0 80px}
 .detail-hero-inner{max-width:1320px;margin:0 auto;padding:0 32px}
-.breadcrumb{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.3);margin-bottom:32px;letter-spacing:.05em}
-.breadcrumb a{color:rgba(255,255,255,.3);text-decoration:none}
-.breadcrumb span{color:rgba(255,255,255,.15)}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.5);margin-bottom:32px;letter-spacing:.05em}
+.breadcrumb a{color:rgba(255,255,255,.5);text-decoration:none}
+.breadcrumb span{color:rgba(255,255,255,.25)}
 .detail-title{font-size:clamp(40px,6vw,80px);font-weight:900;color:#fff;letter-spacing:-.04em;line-height:1.05;margin-bottom:24px}
 .detail-title em{color:var(--crimson);font-style:normal}
-.detail-lead{font-size:16px;color:rgba(255,255,255,.5);max-width:600px;line-height:1.85;font-weight:300}
+.detail-lead{font-size:16px;color:rgba(255,255,255,.7);max-width:600px;line-height:1.85;font-weight:300}
 
 .accordion-section{padding:80px 0}
 .accordion-inner{max-width:1320px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start}
 .accordion-nav{position:sticky;top:calc(var(--tab-h) + 70px)}
 .accordion-nav-title{font-size:10px;font-weight:700;color:var(--gray-400);letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
-.accordion-nav-item{display:block;padding:12px 0;font-size:14px;color:var(--gray-400);text-decoration:none;border-bottom:1px solid var(--gray-200);transition:color .2s;cursor:pointer}
+.accordion-nav-item{display:block;padding:12px 0;font-size:14px;color:var(--gray-600);text-decoration:none;border-bottom:1px solid var(--gray-200);transition:color .2s;cursor:pointer}
 .accordion-nav-item:hover,.accordion-nav-item.active{color:var(--crimson)}
 
 .accordion-list{border-top:2px solid var(--charcoal)}
@@ -232,7 +256,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
 .step-block:last-child::after{display:none}
 .step-block-num{font-size:40px;font-weight:900;color:var(--gray-200);letter-spacing:-.04em;line-height:1;margin-bottom:16px}
 .step-block-title{font-size:14px;font-weight:700;color:var(--charcoal);margin-bottom:8px}
-.step-block-desc{font-size:12px;color:var(--gray-400);line-height:1.75}
+.step-block-desc{font-size:12px;color:var(--gray-600);line-height:1.75}
 
 /* =========================================================
    PAGE 3: CASES LIST
@@ -274,15 +298,15 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
 .case-detail-type{font-size:10px;font-weight:700;color:var(--crimson);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
 .case-detail-title{font-size:clamp(28px,4vw,52px);font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1.15;margin-bottom:32px}
 .case-detail-meta{display:flex;gap:32px;flex-wrap:wrap}
-.case-meta-item{font-size:12px;color:rgba(255,255,255,.4)}
-.case-meta-item strong{color:rgba(255,255,255,.7);display:block;font-size:14px;margin-top:4px;font-weight:500}
+.case-meta-item{font-size:12px;color:rgba(255,255,255,.6)}
+.case-meta-item strong{color:rgba(255,255,255,.85);display:block;font-size:14px;margin-top:4px;font-weight:500}
 
 .timeline-section{padding:80px 0}
 .timeline-inner{max-width:1000px;margin:0 auto;padding:0 32px}
 .timeline{display:flex;flex-direction:column;gap:0;margin-top:48px;position:relative}
 .timeline::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:1px;background:var(--gray-200)}
 .timeline-item{display:grid;grid-template-columns:80px 1fr;gap:32px;padding-bottom:48px;position:relative}
-.timeline-dot{width:33px;height:33px;border:1px solid var(--gray-200);background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gray-400);position:relative;z-index:1;flex-shrink:0}
+.timeline-dot{width:33px;height:33px;border:1px solid var(--gray-200);background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gray-600);position:relative;z-index:1;flex-shrink:0}
 .timeline-item.highlight .timeline-dot{background:var(--crimson);border-color:var(--crimson);color:#fff}
 .timeline-content{padding-top:6px}
 .timeline-phase{font-size:10px;font-weight:700;color:var(--crimson);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
@@ -290,9 +314,9 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
 .timeline-content p{font-size:14px;color:var(--gray-600);line-height:1.85}
 
 .case-result-box{background:var(--charcoal);padding:48px;margin:48px 0;border-left:4px solid var(--crimson)}
-.case-result-box .section-label{color:rgba(255,255,255,.4);margin-bottom:16px}
+.case-result-box .section-label{color:rgba(255,255,255,.6);margin-bottom:16px}
 .case-result-box h2{font-size:clamp(24px,3vw,40px);font-weight:900;color:#fff;letter-spacing:-.03em;margin-bottom:16px}
-.case-result-box p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.85}
+.case-result-box p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.85}
 
 /* =========================================================
    PAGE 5: CONSULT PAGE
@@ -301,13 +325,13 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
 .consult-page-inner{max-width:1320px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .consult-page-copy{}
 .consult-page-copy .section-title{color:#fff;margin-bottom:24px}
-.consult-page-copy p{color:rgba(255,255,255,.5);font-size:15px;line-height:1.85;margin-bottom:40px;font-weight:300}
+.consult-page-copy p{color:rgba(255,255,255,.7);font-size:15px;line-height:1.85;margin-bottom:40px;font-weight:300}
 .consult-promises{display:flex;flex-direction:column;gap:0}
 .promise-item{display:flex;align-items:flex-start;gap:20px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.08)}
 .promise-item:last-child{border-bottom:none}
 .promise-icon{width:40px;height:40px;background:rgba(192,57,43,.15);display:flex;align-items:center;justify-content:center;color:var(--crimson);flex-shrink:0;font-size:16px}
 .promise-text h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.01em}
-.promise-text p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7}
+.promise-text p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.7}
 
 .consult-page-form{background:#fff;padding:48px;border-top:3px solid var(--crimson)}
 .consult-form-title{font-size:20px;font-weight:900;color:var(--charcoal);letter-spacing:-.03em;margin-bottom:32px}
@@ -318,15 +342,16 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
 .time-slot{padding:10px;border:1px solid var(--gray-200);text-align:center;font-size:12px;font-weight:500;color:var(--gray-600);cursor:pointer;transition:all .2s}
 .time-slot:hover,.time-slot.selected{border-color:var(--crimson);color:var(--crimson)}
 
-/* ===== MOBILE ===== */
+/* ===== TABLET: 900px ===== */
 @media(max-width:900px){
   .header-inner{padding:0 20px;height:60px}
-  .main-nav,.header-cta .btn-header{display:none}
+  .main-nav,.header-cta .btn-header,.header-cta .emergency-tel{display:none}
   .hamburger{display:flex}
   .hero-inner{padding:60px 20px}
   .hero-stats{flex-direction:column;gap:24px;border-top:none;padding-top:32px}
   .hero-stat{border-right:none;padding:0 0 24px;border-bottom:1px solid rgba(255,255,255,.08)}
-  .hero-stat:last-child{border-bottom:none}
+  .hero-stat:last-child{border-bottom:none;padding-left:0}
+  .hero-stat:not(:first-child):not(:last-child){padding:0 0 24px}
   .practice-grid{grid-template-columns:1fr}
   .consult-inner,.consult-page-inner{grid-template-columns:1fr}
   .accordion-inner{grid-template-columns:1fr}
@@ -344,18 +369,42 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
   .case-item:hover{margin:0;padding-left:0;padding-right:0}
   .steps-horizontal{gap:8px}
   .step-block{min-width:160px}
-  .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;gap:8px;text-align:center}
-  .bottom-bar-item span:not(.bar-label){display:none}
+  .lawyers-scroll-wrap{margin:0 -20px;padding:0 20px}
 }
+
+/* ===== TABLET SMALL: 600px ===== */
 @media(max-width:600px){
   .hero-title{font-size:clamp(36px,10vw,60px)}
+  .hero-bg-text{font-size:clamp(60px,18vw,120px)}
   .form-row{grid-template-columns:1fr}
   .consult-page-form{padding:28px 20px}
   .form-wrap{padding:28px 20px}
   .practice-card{padding:36px 24px}
-  .lawyer-card{width:260px}
+  .lawyer-card{width:clamp(220px,70vw,260px)}
   .time-slots{grid-template-columns:repeat(2,1fr)}
+  .results-inner{padding:64px 20px}
+  .footer-top{grid-template-columns:1fr}
+  .case-verdict{text-align:left}
+  .timeline::before{left:12px}
+  .timeline-item{grid-template-columns:60px 1fr;gap:16px}
+}
+
+/* ===== MOBILE SMALL: 480px ===== */
+@media(max-width:480px){
+  .hero-inner{padding:48px 16px}
+  .section-inner{padding:0 16px}
+  .process-steps{grid-template-columns:1fr;gap:20px}
+  .process-steps::before{display:none}
+  .hero-actions{flex-direction:column;align-items:flex-start;gap:16px}
+  .case-detail-meta{gap:20px}
+  .results-inner{padding:48px 16px}
+  .lawyers-scroll-wrap{margin:0 -16px;padding:0 16px}
+  .bottom-bar-item span{display:none}
+  .bottom-bar-item.primary span{display:inline}
+  .footer-inner{padding:0 16px}
+  .filter-search{display:none}
+  .cases-list-inner{padding:32px 16px 80px}
 }
 </style>
 </head>
@@ -368,7 +417,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
       <div class="logo-name">법무법인 <span>클리어</span></div>
       <div class="logo-sub">Law Firm Clear · Since 2008</div>
     </a>
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation" aria-label="주요 메뉴">
       <a href="#" class="nav-item active" onclick="switchPage('main');return false">법무법인 소개</a>
       <a href="#" class="nav-item" onclick="switchPage('practice');return false">전문분야</a>
       <a href="#" class="nav-item" onclick="switchPage('cases');return false">성공사례</a>
@@ -379,13 +428,28 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
         <i class="fa-solid fa-phone"></i>
         02-000-0000
       </a>
-      <a href="#" class="btn-header">무료 상담</a>
+      <a href="#" class="btn-header" onclick="switchPage('consult');return false">무료 상담</a>
     </div>
-    <button class="hamburger" aria-label="메뉴">
+    <button class="hamburger" aria-label="모바일 메뉴 열기" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
+
+<!-- MOBILE MENU DRAWER -->
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="모바일 메뉴" aria-modal="true">
+  <nav class="mobile-menu-nav" aria-label="모바일 내비게이션">
+    <a href="#" onclick="switchPage('main');closeMobileMenu();return false">법무법인 소개 <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#" onclick="switchPage('practice');closeMobileMenu();return false">전문분야 <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#" onclick="switchPage('cases');closeMobileMenu();return false">성공사례 <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#" onclick="switchPage('consult');closeMobileMenu();return false">상담문의 <i class="fa-solid fa-arrow-right"></i></a>
+  </nav>
+  <div class="mobile-menu-footer">
+    <div class="mobile-menu-tel">02-000-0000</div>
+    <div class="mobile-menu-tel-label">24시간 긴급 대응</div>
+    <a href="#" class="mobile-menu-cta" onclick="switchPage('consult');closeMobileMenu();return false">무료 상담 신청하기</a>
+  </div>
+</div>
 
 <!-- ============================================================
      PAGE 1: MAIN
@@ -394,7 +458,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
 
   <!-- HERO -->
   <section class="hero" style="padding:0">
-    <div class="hero-bg-text">CLEAR</div>
+    <div class="hero-bg-text" aria-hidden="true">CLEAR</div>
     <div class="hero-inner">
       <div class="hero-eyebrow">성범죄·마약 전문 로펌</div>
       <h1 class="hero-title">
@@ -408,8 +472,8 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
         대응하여 의뢰인의 권익을 지킵니다.
       </p>
       <div class="hero-actions">
-        <a href="#" class="btn-primary">무료 상담 신청 <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="#" class="btn-ghost"><i class="fa-solid fa-play"></i> 성공사례 보기</a>
+        <a href="#" class="btn-primary" onclick="switchPage('consult');return false">무료 상담 신청 <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="btn-ghost" onclick="switchPage('cases');return false"><i class="fa-solid fa-play"></i> 성공사례 보기</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
@@ -433,7 +497,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
   </section>
 
   <!-- MARQUEE -->
-  <div class="marquee-section">
+  <div class="marquee-section" aria-hidden="true">
     <div class="marquee-track">
       <span class="marquee-item">무죄 판결</span>
       <span class="marquee-item">불기소 처분</span>
@@ -462,7 +526,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
           <div class="section-label">전문 분야</div>
           <h2 class="section-title">두 가지 분야,<br>하나의 목표</h2>
         </div>
-        <a href="#" class="btn-ghost" style="color:var(--gray-600);border-color:var(--gray-200)">전체 분야 보기 →</a>
+        <a href="#" class="btn-ghost" style="color:var(--gray-600);border-color:var(--gray-200)" onclick="switchPage('practice');return false">전체 분야 보기 →</a>
       </div>
     </div>
     <div style="max-width:1320px;margin:0 auto;padding:0 32px">
@@ -477,7 +541,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
             <span class="tag">아청법</span>
             <span class="tag">성희롱</span>
           </div>
-          <a href="#" class="practice-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#" class="practice-link" onclick="switchPage('practice');return false">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
         </div>
         <div class="practice-card">
           <div class="practice-num">02</div>
@@ -489,7 +553,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
             <span class="tag">향정신성 의약품</span>
             <span class="tag">수입·밀반입</span>
           </div>
-          <a href="#" class="practice-link">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#" class="practice-link" onclick="switchPage('practice');return false">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -575,7 +639,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
             <div class="section-label">성공사례</div>
             <h2 class="section-title">숫자가 말하는<br>클리어의 실력</h2>
           </div>
-          <a href="#" class="btn-ghost" style="color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.15)">전체 사례 보기 →</a>
+          <a href="#" class="btn-ghost" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3)" onclick="switchPage('cases');return false">전체 사례 보기 →</a>
         </div>
         <div class="results-grid">
           <div class="result-card">
@@ -654,17 +718,17 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
         <form onsubmit="return false">
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label">이름</label>
-              <input type="text" class="form-control" placeholder="홍길동">
+              <label class="form-label" for="name-main">이름</label>
+              <input type="text" id="name-main" class="form-control" placeholder="홍길동">
             </div>
             <div class="form-group">
-              <label class="form-label">연락처</label>
-              <input type="tel" class="form-control" placeholder="010-0000-0000">
+              <label class="form-label" for="tel-main">연락처</label>
+              <input type="tel" id="tel-main" class="form-control" placeholder="010-0000-0000">
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">사건 유형</label>
-            <select class="form-control">
+            <label class="form-label" for="case-type-main">사건 유형</label>
+            <select id="case-type-main" class="form-control">
               <option value="">사건 유형을 선택하세요</option>
               <option>강간·강제추행</option>
               <option>디지털 성범죄</option>
@@ -675,8 +739,8 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">상담 내용</label>
-            <textarea class="form-control" placeholder="사건 내용을 간략히 적어주세요. 비밀이 보장됩니다."></textarea>
+            <label class="form-label" for="content-main">상담 내용</label>
+            <textarea id="content-main" class="form-control" placeholder="사건 내용을 간략히 적어주세요. 비밀이 보장됩니다."></textarea>
           </div>
           <button type="submit" class="btn-submit">무료 상담 신청하기 <i class="fa-solid fa-arrow-right"></i></button>
           <p class="form-notice">개인정보는 상담 목적으로만 사용되며, 상담 종료 후 즉시 파기됩니다.</p>
@@ -701,11 +765,11 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
         <div>
           <div class="footer-col-title">바로가기</div>
           <div class="footer-links">
-            <a href="#">법무법인 소개</a>
-            <a href="#">전문분야 — 성범죄</a>
-            <a href="#">전문분야 — 마약</a>
-            <a href="#">성공사례</a>
-            <a href="#">변호사 소개</a>
+            <a href="#" onclick="switchPage('main');return false">법무법인 소개</a>
+            <a href="#" onclick="switchPage('practice');return false">전문분야 — 성범죄</a>
+            <a href="#" onclick="switchPage('practice');return false">전문분야 — 마약</a>
+            <a href="#" onclick="switchPage('cases');return false">성공사례</a>
+            <a href="#" onclick="switchPage('main');return false">변호사 소개</a>
           </div>
         </div>
         <div>
@@ -732,17 +796,17 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
   </footer>
 
   <!-- BOTTOM BAR -->
-  <div class="bottom-bar">
-    <a href="tel:02-000-0000" class="bottom-bar-item">
-      <i class="fa-solid fa-phone"></i>
+  <div class="bottom-bar" role="navigation" aria-label="빠른 상담">
+    <a href="tel:02-000-0000" class="bottom-bar-item" aria-label="전화 상담 02-000-0000">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i>
       <span>전화 상담</span>
     </a>
-    <a href="#" class="bottom-bar-item">
-      <i class="fa-brands fa-kakao" style="color:#fee500"></i>
+    <a href="#" class="bottom-bar-item" aria-label="카카오톡 상담">
+      <i class="fa-brands fa-kakao" style="color:#fee500" aria-hidden="true"></i>
       <span>카카오톡</span>
     </a>
-    <a href="#" class="bottom-bar-item primary">
-      <i class="fa-solid fa-pen-to-square"></i>
+    <a href="#" class="bottom-bar-item primary" onclick="switchPage('consult');return false" aria-label="무료 상담 신청">
+      <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
       <span>무료 상담 신청</span>
     </a>
   </div>
@@ -757,7 +821,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
   <div class="detail-hero">
     <div class="detail-hero-inner">
       <div class="breadcrumb">
-        <a href="#">홈</a><span>/</span><a href="#">전문분야</a><span>/</span><span style="color:rgba(255,255,255,.6)">성범죄</span>
+        <a href="#" onclick="switchPage('main');return false">홈</a><span>/</span><a href="#">전문분야</a><span>/</span><span style="color:rgba(255,255,255,.75)">성범죄</span>
       </div>
       <h1 class="detail-title"><em>성범죄</em><br>전문 변호</h1>
       <p class="detail-lead">혐의 인정 여부와 관계없이, 법적 절차 전반에서 의뢰인의 권리를 최대한 보호합니다. 사건 유형별 맞춤 전략으로 최선의 결과를 이끌어냅니다.</p>
@@ -898,10 +962,10 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
     </div>
   </div>
 
-  <div class="bottom-bar">
-    <a href="tel:02-000-0000" class="bottom-bar-item"><i class="fa-solid fa-phone"></i><span>전화 상담</span></a>
-    <a href="#" class="bottom-bar-item"><i class="fa-brands fa-kakao" style="color:#fee500"></i><span>카카오톡</span></a>
-    <a href="#" class="bottom-bar-item primary"><i class="fa-solid fa-pen-to-square"></i><span>무료 상담 신청</span></a>
+  <div class="bottom-bar" role="navigation" aria-label="빠른 상담">
+    <a href="tel:02-000-0000" class="bottom-bar-item" aria-label="전화 상담 02-000-0000"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>전화 상담</span></a>
+    <a href="#" class="bottom-bar-item" aria-label="카카오톡 상담"><i class="fa-brands fa-kakao" style="color:#fee500" aria-hidden="true"></i><span>카카오톡</span></a>
+    <a href="#" class="bottom-bar-item primary" onclick="switchPage('consult');return false" aria-label="무료 상담 신청"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i><span>무료 상담 신청</span></a>
   </div>
 
 </div><!-- /page-practice -->
@@ -913,7 +977,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
 
   <div class="cases-header">
     <div class="section-inner">
-      <div class="section-label" style="color:rgba(255,255,255,.4)">성공사례</div>
+      <div class="section-label" style="color:rgba(255,255,255,.6)">성공사례</div>
       <h1 class="section-title" style="color:#fff">클리어가 이겨낸<br>사건들</h1>
     </div>
   </div>
@@ -928,14 +992,14 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
       <button class="filter-btn">마약 소지·매매</button>
       <button class="filter-btn">기타</button>
       <div class="filter-search">
-        <input type="text" class="filter-input" placeholder="사건 검색...">
+        <input type="text" class="filter-input" placeholder="사건 검색..." aria-label="사건 검색">
       </div>
     </div>
   </div>
 
   <div class="cases-list-inner">
 
-    <div class="case-item" onclick="switchPage('case-detail')">
+    <div class="case-item" onclick="switchPage('case-detail')" role="button" tabindex="0" aria-label="강제추행 무죄 사례 상세 보기">
       <div class="case-num">NO. 001</div>
       <div class="case-content">
         <div class="case-type-tag">강제추행</div>
@@ -949,7 +1013,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
       </div>
     </div>
 
-    <div class="case-item" onclick="switchPage('case-detail')">
+    <div class="case-item" onclick="switchPage('case-detail')" role="button" tabindex="0" aria-label="마약 혐의없음 사례 상세 보기">
       <div class="case-num">NO. 002</div>
       <div class="case-content">
         <div class="case-type-tag">필로폰 투약</div>
@@ -963,7 +1027,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
       </div>
     </div>
 
-    <div class="case-item" onclick="switchPage('case-detail')">
+    <div class="case-item" onclick="switchPage('case-detail')" role="button" tabindex="0" aria-label="아청법 집행유예 사례 상세 보기">
       <div class="case-num">NO. 003</div>
       <div class="case-content">
         <div class="case-type-tag">아동·청소년 성착취물</div>
@@ -977,7 +1041,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
       </div>
     </div>
 
-    <div class="case-item">
+    <div class="case-item" role="button" tabindex="0">
       <div class="case-num">NO. 004</div>
       <div class="case-content">
         <div class="case-type-tag">준강간</div>
@@ -991,7 +1055,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
       </div>
     </div>
 
-    <div class="case-item">
+    <div class="case-item" role="button" tabindex="0">
       <div class="case-num">NO. 005</div>
       <div class="case-content">
         <div class="case-type-tag">대마 소지</div>
@@ -1006,21 +1070,21 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
     </div>
 
     <div class="pagination">
-      <button class="page-btn nav"><i class="fa-solid fa-chevron-left"></i></button>
-      <button class="page-btn active">1</button>
+      <button class="page-btn nav" aria-label="이전 페이지"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="page-btn active" aria-current="page">1</button>
       <button class="page-btn">2</button>
       <button class="page-btn">3</button>
       <button class="page-btn">4</button>
       <button class="page-btn">5</button>
-      <button class="page-btn nav"><i class="fa-solid fa-chevron-right"></i></button>
+      <button class="page-btn nav" aria-label="다음 페이지"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
   </div>
 
-  <div class="bottom-bar">
-    <a href="tel:02-000-0000" class="bottom-bar-item"><i class="fa-solid fa-phone"></i><span>전화 상담</span></a>
-    <a href="#" class="bottom-bar-item"><i class="fa-brands fa-kakao" style="color:#fee500"></i><span>카카오톡</span></a>
-    <a href="#" class="bottom-bar-item primary"><i class="fa-solid fa-pen-to-square"></i><span>무료 상담 신청</span></a>
+  <div class="bottom-bar" role="navigation" aria-label="빠른 상담">
+    <a href="tel:02-000-0000" class="bottom-bar-item" aria-label="전화 상담 02-000-0000"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>전화 상담</span></a>
+    <a href="#" class="bottom-bar-item" aria-label="카카오톡 상담"><i class="fa-brands fa-kakao" style="color:#fee500" aria-hidden="true"></i><span>카카오톡</span></a>
+    <a href="#" class="bottom-bar-item primary" onclick="switchPage('consult');return false" aria-label="무료 상담 신청"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i><span>무료 상담 신청</span></a>
   </div>
 
 </div><!-- /page-cases -->
@@ -1033,7 +1097,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
   <div class="case-detail-hero">
     <div class="case-detail-inner">
       <div class="breadcrumb">
-        <a href="#" onclick="switchPage('cases');return false">성공사례</a><span>/</span><span style="color:rgba(255,255,255,.6)">사례 상세</span>
+        <a href="#" onclick="switchPage('cases');return false">성공사례</a><span>/</span><span style="color:rgba(255,255,255,.75)">사례 상세</span>
       </div>
       <div class="case-detail-type">강제추행 · 무죄 판결</div>
       <h1 class="case-detail-title">직장 내 강제추행 혐의<br>피해자 진술 신빙성 탄핵으로<br>무죄 판결</h1>
@@ -1109,10 +1173,10 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
     </div>
   </section>
 
-  <div class="bottom-bar">
-    <a href="tel:02-000-0000" class="bottom-bar-item"><i class="fa-solid fa-phone"></i><span>전화 상담</span></a>
-    <a href="#" class="bottom-bar-item"><i class="fa-brands fa-kakao" style="color:#fee500"></i><span>카카오톡</span></a>
-    <a href="#" class="bottom-bar-item primary"><i class="fa-solid fa-pen-to-square"></i><span>무료 상담 신청</span></a>
+  <div class="bottom-bar" role="navigation" aria-label="빠른 상담">
+    <a href="tel:02-000-0000" class="bottom-bar-item" aria-label="전화 상담 02-000-0000"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>전화 상담</span></a>
+    <a href="#" class="bottom-bar-item" aria-label="카카오톡 상담"><i class="fa-brands fa-kakao" style="color:#fee500" aria-hidden="true"></i><span>카카오톡</span></a>
+    <a href="#" class="bottom-bar-item primary" onclick="switchPage('consult');return false" aria-label="무료 상담 신청"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i><span>무료 상담 신청</span></a>
   </div>
 
 </div><!-- /page-case-detail -->
@@ -1125,7 +1189,7 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
   <div class="consult-page-hero">
     <div class="consult-page-inner">
       <div class="consult-page-copy">
-        <div class="section-label" style="color:rgba(255,255,255,.4)">온라인 상담 신청</div>
+        <div class="section-label" style="color:rgba(255,255,255,.6)">온라인 상담 신청</div>
         <h1 class="section-title" style="color:#fff;margin-bottom:24px">지금 이 순간<br>도움을 드립니다</h1>
         <p>혐의를 받은 순간부터 시간이 가장 중요합니다. 24시간 언제든지 상담을 신청하면 1시간 내에 담당 변호사가 직접 연락드립니다.</p>
         <div class="consult-promises">
@@ -1162,29 +1226,29 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
 
       <div class="consult-page-form">
         <h2 class="consult-form-title">무료 상담 신청서</h2>
-        <div class="form-step-indicator">
-          <div class="fsi-item active">01 기본 정보</div>
+        <div class="form-step-indicator" aria-label="단계 표시">
+          <div class="fsi-item active" aria-current="step">01 기본 정보</div>
           <div class="fsi-item">02 사건 내용</div>
           <div class="fsi-item">03 완료</div>
         </div>
         <form onsubmit="return false">
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label">이름 *</label>
-              <input type="text" class="form-control" placeholder="홍길동">
+              <label class="form-label" for="name-consult">이름 *</label>
+              <input type="text" id="name-consult" class="form-control" placeholder="홍길동">
             </div>
             <div class="form-group">
-              <label class="form-label">연락처 *</label>
-              <input type="tel" class="form-control" placeholder="010-0000-0000">
+              <label class="form-label" for="tel-consult">연락처 *</label>
+              <input type="tel" id="tel-consult" class="form-control" placeholder="010-0000-0000">
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">이메일</label>
-            <input type="email" class="form-control" placeholder="example@email.com">
+            <label class="form-label" for="email-consult">이메일</label>
+            <input type="email" id="email-consult" class="form-control" placeholder="example@email.com">
           </div>
           <div class="form-group">
-            <label class="form-label">사건 유형 *</label>
-            <select class="form-control">
+            <label class="form-label" for="case-type-consult">사건 유형 *</label>
+            <select id="case-type-consult" class="form-control">
               <option value="">선택하세요</option>
               <option>강간·강제추행</option>
               <option>디지털 성범죄 (불법촬영·유포)</option>
@@ -1197,8 +1261,8 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">현재 상황</label>
-            <select class="form-control">
+            <label class="form-label" for="situation-consult">현재 상황</label>
+            <select id="situation-consult" class="form-control">
               <option value="">현재 상황을 선택하세요</option>
               <option>고소장 접수 통보를 받았습니다</option>
               <option>경찰 조사 통보를 받았습니다</option>
@@ -1210,18 +1274,18 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
           </div>
           <div class="form-group">
             <label class="form-label">상담 선호 시간대</label>
-            <div class="time-slots">
-              <div class="time-slot selected">오전 (09–12시)</div>
-              <div class="time-slot">오후 (12–18시)</div>
-              <div class="time-slot">저녁 (18–21시)</div>
-              <div class="time-slot">야간 (21시 이후)</div>
-              <div class="time-slot">주말 가능</div>
-              <div class="time-slot">언제든지</div>
+            <div class="time-slots" role="group" aria-label="상담 선호 시간대 선택">
+              <div class="time-slot selected" role="button" tabindex="0">오전 (09–12시)</div>
+              <div class="time-slot" role="button" tabindex="0">오후 (12–18시)</div>
+              <div class="time-slot" role="button" tabindex="0">저녁 (18–21시)</div>
+              <div class="time-slot" role="button" tabindex="0">야간 (21시 이후)</div>
+              <div class="time-slot" role="button" tabindex="0">주말 가능</div>
+              <div class="time-slot" role="button" tabindex="0">언제든지</div>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">상담 내용</label>
-            <textarea class="form-control" placeholder="사건 내용을 간략히 적어주세요. 모든 내용은 비밀이 보장됩니다." style="height:120px"></textarea>
+            <label class="form-label" for="content-consult">상담 내용</label>
+            <textarea id="content-consult" class="form-control" placeholder="사건 내용을 간략히 적어주세요. 모든 내용은 비밀이 보장됩니다." style="height:120px"></textarea>
           </div>
           <button type="submit" class="btn-submit">무료 상담 신청하기 <i class="fa-solid fa-arrow-right"></i></button>
           <p class="form-notice">입력하신 개인정보는 상담 목적으로만 사용됩니다.<br>상담 완료 후 고객 요청 시 즉시 파기됩니다.</p>
@@ -1230,10 +1294,10 @@ textarea.form-control{resize:none;height:100px;line-height:1.7;padding:12px 0}
     </div>
   </div>
 
-  <div class="bottom-bar">
-    <a href="tel:02-000-0000" class="bottom-bar-item"><i class="fa-solid fa-phone"></i><span>전화 상담</span></a>
-    <a href="#" class="bottom-bar-item"><i class="fa-brands fa-kakao" style="color:#fee500"></i><span>카카오톡</span></a>
-    <a href="#" class="bottom-bar-item primary"><i class="fa-solid fa-pen-to-square"></i><span>무료 상담 신청</span></a>
+  <div class="bottom-bar" role="navigation" aria-label="빠른 상담">
+    <a href="tel:02-000-0000" class="bottom-bar-item" aria-label="전화 상담 02-000-0000"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>전화 상담</span></a>
+    <a href="#" class="bottom-bar-item" aria-label="카카오톡 상담"><i class="fa-brands fa-kakao" style="color:#fee500" aria-hidden="true"></i><span>카카오톡</span></a>
+    <a href="#" class="bottom-bar-item primary" aria-label="무료 상담 신청"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i><span>무료 상담 신청</span></a>
   </div>
 
 </div><!-- /page-consult -->
@@ -1248,7 +1312,39 @@ function switchPage(id) {
   const map = { main: 0, practice: 1, cases: 2, 'case-detail': 2, consult: 3 };
   if (navItems[map[id]]) navItems[map[id]].classList.add('active');
   window.scrollTo(0, 0);
+  closeMobileMenu();
 }
+
+// Mobile menu toggle
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.querySelector('.hamburger');
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    menu.classList.add('open');
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', '모바일 메뉴 닫기');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.querySelector('.hamburger');
+  menu.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-label', '모바일 메뉴 열기');
+  document.body.style.overflow = '';
+}
+
+// Close mobile menu on ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeMobileMenu();
+});
 
 // Accordion
 function toggleAccordion(header) {
@@ -1272,6 +1368,12 @@ document.querySelectorAll('.time-slot').forEach(slot => {
     document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
     this.classList.add('selected');
   });
+  slot.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
 });
 
 // Accordion nav active state
@@ -1279,6 +1381,16 @@ document.querySelectorAll('.accordion-nav-item').forEach(item => {
   item.addEventListener('click', function() {
     document.querySelectorAll('.accordion-nav-item').forEach(i => i.classList.remove('active'));
     this.classList.add('active');
+  });
+});
+
+// Case items keyboard navigation
+document.querySelectorAll('.case-item[role="button"]').forEach(item => {
+  item.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
   });
 });
 </script>
